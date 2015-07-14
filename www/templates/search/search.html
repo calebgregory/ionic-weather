@@ -1,16 +1,24 @@
 <ion-view view-title="Location Search">
   <ion-content>
     <ion-list class="list list-inset">
-      <ion-item>
-        <label class="item item-input">
+      <ion-item class="item item-input-inset">
+        <label class="item item-input-wrapper">
           <i class="icon ion-search placeholder-icon"></i>
           <input type="search"
-                 placeholder="Search location..."
-                 ng-model="$parent.$parent.query"
-                 ng-change="$parent.queryChanged()">
+            placeholder="Search location..."
+            ng-model="$parent.$parent.query"
+            ng-change="$parent.queryChanged()"
+          >
         </label>
       </ion-item>
-      <ion-item ng-repeat="result in results">
+      <ion-item class="item item-input-inset"
+        ng-repeat="result in results"
+        ui-sref="app.weather({
+          city: result.formatted_address,
+          lat: result.geometry.location.lat,
+          long: result.geometry.location.lng
+        })"
+      >
         {{result.formatted_address}}
       </ion-item>
     </ion-list>
