@@ -8,7 +8,8 @@ angular.module('starter', [
                'ionic',
                'starter.controllers',
                'won.search',
-               'won.weather'
+               'won.weather',
+               'won.services'
         ])
 
 .run(function($ionicPlatform) {
