@@ -7,7 +7,9 @@
 angular.module('starter', [
                'ionic',
                'starter.controllers',
-               'won.search'])
+               'won.search',
+               'won.weather'
+        ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,8 +40,17 @@ angular.module('starter', [
     views: {
       'menuContent': {
         templateUrl: "templates/search/search.html",
-        controller: 'SearchCtrl',
-        controllerAs: 'search'
+        controller: 'SearchCtrl'
+      }
+    }
+  })
+
+  .state('app.weather', {
+    url: "/weather/:city/:lat/:long",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/weather/weather.html",
+        controller: 'WeatherCtrl'
       }
     }
   });
