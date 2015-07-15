@@ -1,9 +1,19 @@
 <ion-view view-title="Settings">
   <ion-content>
-    <div class="row">
-      <div class="col col-center">
-        <h1>Settings</h1>
+    <div class="list">
+      <div class="item item-divider">
+        To what precision shall we predict your weather?
       </div>
+      <div class="item range">
+        7˚
+        <input type="range" min="0" max="2" ng-model="$parent.precision" ng-change="precisionChanged()">
+        7.89˚
+      </div>
+      <div class="item item-divider">
+        How would you like your degrees served?
+      </div>
+      <ion-radio ng-model="$parent.scale" ng-value="'F'">Fahrenheit</ion-radio>
+      <ion-radio ng-model="$parent.scale" ng-value="'C'">Celsius</ion-radio>
     </div>
   </ion-content>
 </ion-view>
