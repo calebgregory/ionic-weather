@@ -1,6 +1,6 @@
 angular.module('won.weather', [])
 
-.controller('WeatherCtrl', function($scope, $stateParams, $http, $ionicLoading, Weather) {
+.controller('WeatherCtrl', function($scope, $stateParams, $ionicLoading, Weather) {
 
   $scope.city = $stateParams.city;
 
