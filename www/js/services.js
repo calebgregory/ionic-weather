@@ -7,7 +7,7 @@ angular.module('won.services', [])
         .get('https://maps.googleapis.com/maps/api/geocode/json', {
           params: { address: param }
         })
-        .success(cb)
+        .success(cb);
     }
   };
   return geolocation;
