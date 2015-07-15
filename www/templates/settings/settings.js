@@ -5,9 +5,9 @@ angular.module('won.settings', [])
   $scope.precision = Settings.precision;
 
   $scope.$watch('scale', function() {
-    Settings.setScale($scope.scale);
+    Settings.scale = $scope.scale;
   });
   $scope.$watch('precision', function() {
-    Settings.setPrecision($scope.precision);
+    Settings.precision = $scope.precision;
   });
 });
