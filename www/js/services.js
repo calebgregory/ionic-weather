@@ -22,7 +22,20 @@ angular.module('won.services', [])
              + params.long)
       .success(cb);
     }
-  }
+  };
   return weather;
 
+})
+.factory('Settings', function() {
+  var defaultSettings = {
+    scale : localStorage.scale || 'F',
+    precision : localStorage.precision || 1,
+    setScale : function(value) {
+      localStorage.scale = value;
+    },
+    setPrecision : function(value) {
+      localStorage.precision = value;
+    }
+  };
+  return defaultSettings;
 });
