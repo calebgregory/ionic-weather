@@ -39,4 +39,35 @@ angular.module('won.services', [])
     set precision(value) { localStorage.precision = value; }
   };
   return settings;
+})
+
+.factory('Locations', function() {
+  var defaultFav = [{
+    city : 'Nashville, TN, USA',
+    lat : '36.162664',
+    long : '-86.781602'
+  }];
+  if (!localStorage.favorites) {
+    localStorage.favorites = JSON.stringify(defaultFav);
+  }
+
+  var data = {
+    get favorites() { return JSON.parse(localStorage.favorites); },
+    set favorites(f) { localStorage.favorites = JSON.stringify(f); },
+    addFavorite : function(f) {
+      this.favorites = this.favorites.concat(f);
+    },
+    removeFavorite : function(f) {
+      var index = -1;
+      this.favorites.forEach(function(fav,i) {
+        if( _.isEqual(f,fav) ) {
+          index = i;
+        }
+      });
+      if (index > -1 && this.favorites.length > 1) {
+        this.favorites = JSON.stringify(this.favorites.splice(index,1));
+      }
+    }
+  }
+  return data;
 });
