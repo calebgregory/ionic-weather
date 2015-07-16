@@ -11,5 +11,6 @@ angular.module('won.weather', [])
   Weather.current($stateParams,Settings,function(res) {
     $scope.current = res.currently;
     $ionicLoading.hide();
-  })
+  });
+
 });
