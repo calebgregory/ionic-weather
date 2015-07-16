@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $state, $rootScope, $ionicModal, $stateParams, $timeout, Locations) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -11,6 +11,17 @@ angular.module('starter.controllers', [])
 
   // Form data for the login modal
   $scope.loginData = {};
+
+  $scope.params = $stateParams;
+  $scope.favorites = Locations.favorites;
+
+  $rootScope.$on('menuItemChanged', function(event,message) {
+    $scope.favorites = Locations.favorites;
+  });
+  $scope.makeFavorite = function(obj) {
+    Locations.addFavorite(obj);
+    $rootScope.$emit('menuItemChanged');
+  };
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {

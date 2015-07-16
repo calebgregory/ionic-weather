@@ -1,4 +1,12 @@
-<ion-view view-title="{{city}}">
+<ion-view view-title="{{params.city}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-android-star-outline"
+      ng-click="makeFavorite({
+          city: params.city,
+          lat: params.lat,
+          long: params.long
+        })"></button>
+  </ion-nav-buttons>
   <ion-content>
     <div class="row">
       <div class="col col-center">
