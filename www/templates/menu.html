@@ -26,6 +26,21 @@
           <i class="icon ion-ios-gear"></i>
           Settings
         </ion-item>
+        <div class="item item-divider">
+          <i class="icon ion-earth"></i>
+          Favorite cities
+        </div>
+        <div ng-repeat="favorite in favorites">
+          <ion-item menu-close
+          ui-sref="app.weather({
+            city: favorite.city,
+            lat: favorite.lat,
+            long: favorite.long
+          })">
+            {{favorite.city}}
+            <ion-delete-button class="ion-minus-circled"></ion-delete-button>
+          </ion-item>
+        </div>
       </ion-list>
     </ion-content>
   </ion-side-menu>
