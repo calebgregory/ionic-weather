@@ -3,6 +3,8 @@ angular.module('won.weather', [])
 .controller('WeatherCtrl', function($scope, $stateParams, $ionicLoading, Weather, Settings) {
 
   $scope.city = $stateParams.city;
+  $scope.scale = Settings.scale;
+  $scope.precision = Settings.precision;
 
   $ionicLoading.show();
 

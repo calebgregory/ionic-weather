@@ -2,7 +2,8 @@
   <ion-content>
     <div class="row">
       <div class="col col-center">
-        <h1>{{current.temperature}}</h1>
+        <h1 ng-hide="current">--˚</h1>
+        <h1 ng-show="current">{{current.temperature | number: precision}}˚{{scale}}</h1>
         <h2>{{current.summary}}</h2>
       </div>
     </div>
